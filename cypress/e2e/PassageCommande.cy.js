@@ -33,5 +33,13 @@ export const PassageCommande =()=> {
  cy.get('[name="telephone"]').type('00231443233')
  cy.get(':nth-child(2) > :nth-child(1) > .radio').click()
  cy.get('.button').click()
+ // confirmation
+ cy.get('.payment-method-content > :nth-child(4) > div.primary > .action').click()
+ // verifier  l'affichage de message « Thank you for your purchase! »
+ cy.get('.base').should('contain','Thank you for your purchase!')
+ //le numéro d'ordre est affiché
+ cy.get('.checkout-success > :nth-child(1)').should('be.visible')
+ //se deconnecter
+ cy.get(':nth-child(2) > .customer-welcome > .customer-name > .action').select('Sign Out')
 
 }
