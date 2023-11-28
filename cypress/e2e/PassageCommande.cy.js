@@ -23,7 +23,7 @@ export const PassageCommande =()=> {
 //cliquer sur la liste des achats
  cy.get('#top-cart-btn-checkout').click()
  cy.wait(5000)
- cy.get('._active > span').should('be.visible')
+
  //Remplir le formulaire pour payes la commande
  
  cy.get('[name="street[0]"]').type('11 rue Marco polo')
@@ -34,7 +34,7 @@ export const PassageCommande =()=> {
  cy.get(':nth-child(2) > :nth-child(1) > .radio').click()
  cy.get('.button').click()
  // confirmation
- cy.get('.payment-method-content > :nth-child(4) > div.primary > .action').click()
+ cy.get('.payment-method-content > :nth-child(4) > div.primary > .action').should('be.visible').click()
  // verifier  l'affichage de message « Thank you for your purchase! »
  cy.get('.base').should('contain','Thank you for your purchase!')
  //le numéro d'ordre est affiché
